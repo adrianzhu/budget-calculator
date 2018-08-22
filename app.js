@@ -10,21 +10,22 @@ var pg = require('pg');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+var models = require('./models');
 var config = require('./config.js');
 
 var app = express();
 
 // db setup
-const connectionString = config.dbinfo;
-const client = new pg.Client(connectionString);
-client.connect(function(err) {
-	if (err) {
-		console.error('Database connection failed: ', err.stack);
-		return;
-	}
+// const connectionString = config.dbinfo;
+// const client = new pg.Client(connectionString);
+// client.connect(function(err) {
+// 	if (err) {
+// 		console.error('Database connection failed: ', err.stack);
+// 		return;
+// 	}
 
-	console.log('Connected to Database!');
-});
+// 	console.log('Connected to Database!');
+// });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
