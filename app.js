@@ -15,18 +15,6 @@ var config = require('./config.js');
 
 var app = express();
 
-// db setup
-// const connectionString = config.dbinfo;
-// const client = new pg.Client(connectionString);
-// client.connect(function(err) {
-// 	if (err) {
-// 		console.error('Database connection failed: ', err.stack);
-// 		return;
-// 	}
-
-// 	console.log('Connected to Database!');
-// });
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -39,6 +27,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// All routes
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
