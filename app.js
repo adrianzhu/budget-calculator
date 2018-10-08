@@ -11,7 +11,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var models = require('./models');
-// var config = require('./config.js');
+// var config = require('./config.js'); // think it is replaced by config.json in index.js
 
 var app = express();
 
@@ -27,14 +27,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// All routes
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
+// All other routes
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
 
 // error handler
 app.use(function(err, req, res, next) {
