@@ -11,7 +11,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var models = require('./models');
-var config = require('./config.js');
+// var config = require('./config.js');
 
 var app = express();
 

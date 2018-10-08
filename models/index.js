@@ -3,7 +3,7 @@ var path = require('path');
 var Sequelize = require('sequelize');
 var basename  = path.basename(module.filename); 
 // module.filename == __filename == this.filename
-var env = process.env.NODE_ENV || 'amzn';
+var env = process.env.NODE_ENV || 'development';
 var config = require(__dirname + '/../config/config.json')[env];
 var db = {};
 

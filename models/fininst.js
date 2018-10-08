@@ -1,9 +1,9 @@
 module.exports = (sequelize, DataTypes) => {
     var FinInst = sequelize.define('FinInst', {
-        finInst: DataTypes.CHAR
+        name: DataTypes.CHAR
     });
     
-    FinInst.associate = function(models) {
+    FinInst.associate = (models) => {
     // associations can be defined here
     };
     

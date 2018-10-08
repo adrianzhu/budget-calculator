@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     Entry.associate = function(models) {
         Entry.hasMany(models.Account, {
             foreignKey: 'accountId',
-            as: 'accountId',
+            as: 'account_id',
         });
     };
     return Entry;

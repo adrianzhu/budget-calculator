@@ -6,21 +6,21 @@ module.exports = (sequelize, DataTypes) => {
         },
     });
     Account.associate = (models) => {
-        Account.hasMany(model.User, {
+        Account.hasMany(models.User, {
             foreignKey: 'userId',
-            as: 'userId',
+            as: 'user_id',
         });
-        Account.belongsTo(model.FinInst, {
+        Account.belongsTo(models.FinInst, {
             foreignKey: 'finInstId',
-            as: 'finInstId',
+            as: 'finInst_id',
         });
-        Account.hasMany(model.Entry, {
+        Account.hasMany(models.Entry, {
             foreignKey: 'entryId',
-            as: 'entryId',
+            as: 'entry_id',
         });
-        Account.belongsTo(model.AccountType, {
+        Account.belongsTo(models.AccountType, {
             foreignKey: 'accountTypeId',
-            as: 'accountType',
+            as: 'accountType_id',
         });
     };
 
