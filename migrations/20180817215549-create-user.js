@@ -9,6 +9,15 @@ module.exports = {
         },
         username: {
             type: Sequelize.CHAR,
+            allowNull: false,
+        },
+        email: {
+            type: Sequelize.CHAR,
+            allowNull: false,
+        },
+        password: {
+            type: Sequelize.CHAR,
+            allowNull: false,
         },
         createdAt: {
             allowNull: false,
