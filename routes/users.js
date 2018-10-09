@@ -8,6 +8,8 @@ router.get('/', function(req, res, next) {
     res.send('respond with a resource');
 });
 
-router.get('/allusers', usersController.getAllUsers);
+router.get('/getadmin', usersController.getAdminUsers);
+
+router.get('/getallusers', usersController.getAllUsers);
 
 module.exports = router;

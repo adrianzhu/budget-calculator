@@ -1,23 +1,33 @@
 const User = require('../models').User;
 
 module.exports = {
-	getAllUsers(req, res) {
+	// TODO: make return all admin users
+	getAdminUsers(req, res) {
 		return User
 			.findAll({
 				where: {
 					username: 'admin'
 				}
-			})
-			// TODO: below is experimental
-			.then(user => {				
-				if (user[0] !== undefined) {
-					console.log('user: ', user)
-					console.log('username: ', user[0].username);
+			})			
+			.then(user => {
+				foundUser = user[0];
+				if (foundUser !== undefined) {					
+					console.log('admin found');
+					res.status(201).end(JSON.stringify({
+						user: foundUser,
+						message: 'admin was found'
+					}));
 				} else {
-					console.log('no user found');
+					console.log('Admin was not found');
 				}
-				res.status(201).send(user[0].username);
 			})
+			.catch(error => res.status(400).send(error));
+	},
+	
+	getAllUsers(req, res) {
+		return User
+			.all()
+			.then(users => res.status(200).send(users))
 			.catch(error => res.status(400).send(error));
 	},
 };
