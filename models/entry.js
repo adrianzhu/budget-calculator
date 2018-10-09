@@ -17,11 +17,11 @@ module.exports = (sequelize, DataTypes) => {
         },
     });
 
-    Entry.associate = function(models) {
-        Entry.hasMany(models.Account, {
-            foreignKey: 'accountId',
-            as: 'account_id',
-        });
-    };
+    // Entry.associate = function(models) {
+    //     Entry.hasMany(models.Account, {
+    //         foreignKey: 'accountId',
+    //         as: 'account_id',
+    //     });
+    // };
     return Entry;
 };

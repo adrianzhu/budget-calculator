@@ -14,12 +14,12 @@ module.exports = (sequelize, DataTypes) => {
         },
     });
 
-    User.associate = (models) => {
-        User.hasMany(models.Account, {
-            foreignKey: 'accountId',
-            as: 'account_id',
-        });
-    };
+    // User.associate = (models) => {
+    //     User.hasMany(models.Account, {
+    //         foreignKey: 'accountId',
+    //         as: 'account_id',
+    //     });
+    // };
 
   return User;
 };
