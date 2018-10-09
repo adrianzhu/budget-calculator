@@ -19,8 +19,8 @@ module.exports = (sequelize, DataTypes) => {
     //         as: 'entry_id',
     //     });
     //     Account.belongsTo(models.AccountType, {
-    //         foreignKey: 'accountTypeId',
-    //         as: 'accountType_id',
+    //         foreignKey: 'accTypeId',
+    //         as: 'accType_id',
     //     });
     // };
 

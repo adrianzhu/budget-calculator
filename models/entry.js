@@ -4,10 +4,10 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.DECIMAL,
         },
         otherParty: { 
-            type: DataTypes.CHAR,
+            type: DataTypes.STRING,
         },
         description: { 
-            type: DataTypes.CHAR,
+            type: DataTypes.STRING,
         },
         expense: { 
             type: DataTypes.BOOLEAN,

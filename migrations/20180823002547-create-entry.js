@@ -11,10 +11,10 @@ module.exports = {
             type: Sequelize.DECIMAL,
         },
         otherParty: {
-            type: Sequelize.CHAR,
+            type: Sequelize.STRING,
         },
         description: {
-            type: Sequelize.CHAR,
+            type: Sequelize.STRING,
         },
         expense: {
             type: Sequelize.BOOLEAN,

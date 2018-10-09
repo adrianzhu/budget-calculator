@@ -1,6 +1,11 @@
 module.exports = (sequelize, DataTypes) => {
     var FinInst = sequelize.define('FinInst', {
-        name: DataTypes.CHAR
+        name: {
+        	type: DataTypes.STRING,
+        },
+        code: {
+        	type: DataTypes.STRING,
+        },
     });
     
     FinInst.associate = (models) => {

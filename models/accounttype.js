@@ -1,9 +1,12 @@
 module.exports = (sequelize, DataTypes) => {
     var AccountType = sequelize.define('AccountType', {
-        accountType: DataTypes.CHAR
+        accType: {
+        	type: DataTypes.STRING(3),
+        },
     });
-    AccountType.associate = (models) => {
 
-    };
+    // AccountType.associate = (models) => {
+
+    // };
     return AccountType;
 };
