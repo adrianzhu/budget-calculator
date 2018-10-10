@@ -12,7 +12,7 @@ module.exports = {
 			.then(user => {
 				foundUser = user[0];
 				if (foundUser !== undefined) {					
-					console.log('admin found');
+					console.log('Admin found');
 					res.status(201).end(JSON.stringify({
 						user: foundUser,
 						message: 'admin was found'
