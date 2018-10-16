@@ -13,7 +13,10 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.BOOLEAN,
         },
         notes: { 
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+        },
+        transactionDate: {
+            type: DataTypes.DATE
         },
     });
 
@@ -22,6 +25,10 @@ module.exports = (sequelize, DataTypes) => {
     //         foreignKey: 'accountId',
     //         as: 'account_id',
     //     });
+    //     Entry.belongsTo(models.Category, {
+    //         foreignKey: 'categoryId',    
+    //         as: 'category_id',
+    //     }).
     // };
     return Entry;
 };
