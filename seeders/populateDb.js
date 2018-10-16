@@ -23,4 +23,29 @@ models.sequelize.sync({force: true}).then(function() {
             });
         });
     });
+
+    fs.readFile('./fininsts.json', function(err, data) {
+        var fininsts = JSON.parse(data).fininsts;
+
+        fininsts.forEach(function(fininst) {
+            models.FinInst.create({
+                name: fininst.name,
+                code: fininst.code,
+                alias: fininst.alias
+            });
+        });
+    });
+
+    fs.readFile('./accounttypes.json', function(err, data) {
+        var accounttypes = JSON.parse(data).accounttypes;
+
+        accounttypes.forEach(function(accounttype) {
+            models.AccountType.create({
+                accType: accounttype.accType,
+                accountType: accounttype.accountType,
+                shortDescription: accounttype.shortDescription,
+                longDescription: accounttype.longDescription
+            });
+        });
+    });
 });

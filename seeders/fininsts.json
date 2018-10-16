@@ -1,0 +1,29 @@
+{
+    "fininsts":[
+    {
+        "name": "Royal Bank of Canada",
+        "code": "003",
+        "alias": "RBC"
+    },
+    {
+        "name": "Toronto-Dominion Bank",
+        "code": "004",
+        "alias": "TD"
+    },
+    {
+        "name": "Bank of Nova Scotia",
+        "code": "002",
+        "alias": "Scotiabank"
+    },
+    {
+        "name": "Bank of Montreal",
+        "code": "001",
+        "alias": "BMO"
+    },
+    {
+        "name": "Canadian Imperial Bank of Commerce",
+        "code": "010",
+        "alias": "CIBC"
+    }
+    ]
+}

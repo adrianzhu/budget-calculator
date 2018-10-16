@@ -1,0 +1,28 @@
+{
+    "accounttypes":[
+    {
+        "accType": "CHQ",
+        "accountType": "Basic Chequing Account",
+        "shortDescription": "A basic debit account.",
+        "longDescription": "Basic chequing accounts are often used to pay bills and transfer funds."
+    },
+    {
+        "accType": "SAV",
+        "accountType": "Savings Account",
+        "shortDescription": "An account for long term savings.",
+        "longDescription": "Savings accounts are not typically used to buy things. Interest on savings accounts are usually higher than chequing accounts to encourage saving."
+    },
+    {
+        "accType": "TFSA",
+        "accountType": "Tax Free Savings Account",
+        "shortDescription": "A tax free investment account.",
+        "longDescription": "Tax Free Savings Accounts allow you to buy equity without having the profits earned from those investments being immediately taxed."
+    },
+    {
+        "accType": "MMA",
+        "accountType": "Money Market Accounts",
+        "shortDescription": "An account that pays an interest based on current interest rates on the money markets.",
+        "longDescription": "A Money Market Account typically has a higher interest rate than a regular savings account but in return, usually have a higher account balance requirement."
+    }
+    ]
+}
