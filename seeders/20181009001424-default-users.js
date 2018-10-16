@@ -1,3 +1,6 @@
+// deprecated, do not need to use db:seed:all,
+// just run 'node populateDb.js' instead
+
 module.exports = {
     up: (queryInterface, Sequelize) => 
     queryInterface.bulkInsert('Users', [{

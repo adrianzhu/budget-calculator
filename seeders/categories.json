@@ -1,25 +1,25 @@
 {
     "categories":[
     {
-        "name": "Groceries",
+        "name": "Groceries"
     },
     {
-        "name": "Leisure",
+        "name": "Leisure"
+    },
+    {
+        "name": "Sports & Exercise"
+    },
+    {
+        "name": "Phone"
+    },
+    {
+        "name": "Eating Out"
+    },
+    {
+        "name": "Clothing"
+    },
+    {
+        "name": "Gifts"
     }
-    {
-        "name": "Sports & Exercise",
-    },
-    {
-        "name": "Phone",
-    },
-    {
-        "name": "Eating Out",
-    },
-    {
-        "name": "Clothing",
-    },
-    {
-        "name": "Gifts",
-    },
     ]
 }
