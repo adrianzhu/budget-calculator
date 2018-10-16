@@ -1,7 +1,16 @@
 module.exports = (sequelize, DataTypes) => {
     var AccountType = sequelize.define('AccountType', {
         accType: {
-        	type: DataTypes.STRING(3),
+        	type: DataTypes.STRING,
+        },
+        accountType: {
+            type: DataTypes.STRING,
+        },
+        shortDescription: {
+            type: DataTypes.STRING,
+        },
+        longDescription: {
+            type: DataTypes.STRING
         },
     });
 
