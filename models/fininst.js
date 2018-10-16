@@ -6,6 +6,9 @@ module.exports = (sequelize, DataTypes) => {
         code: {
         	type: DataTypes.STRING,
         },
+        alias: {
+            type: DataTypes.STRING,
+        },
     });
     
     FinInst.associate = (models) => {
