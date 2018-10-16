@@ -20,15 +20,15 @@ module.exports = (sequelize, DataTypes) => {
         },
     });
 
-    // Entry.associate = function(models) {
-    //     Entry.hasMany(models.Account, {
-    //         foreignKey: 'accountId',
-    //         as: 'account_id',
-    //     });
-    //     Entry.belongsTo(models.Category, {
-    //         foreignKey: 'categoryId',    
-    //         as: 'category_id',
-    //     }).
-    // };
+    Entry.associate = function(models) {
+        Entry.hasMany(models.Account, {
+            foreignKey: 'accountId',
+            as: 'account_id',
+        });
+        Entry.belongsTo(models.Category, {
+            foreignKey: 'categoryId',    
+            as: 'category_id',
+        });
+    };
     return Entry;
 };
