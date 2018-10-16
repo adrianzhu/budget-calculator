@@ -6,7 +6,7 @@ module.exports = {
 		return User
 			.findAll({
 				where: {
-					username: 'admin'
+					username: 'Admin'
 				}
 			})			
 			.then(user => {
