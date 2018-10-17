@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import LoginForm from '../components/LoginForm';
+import './Login.css'
 
 // TODO: Add toggle for sign up or login depending on what was clicked
 //       from main app page
@@ -8,9 +9,11 @@ class Login extends Component {
 
     render() {
         return (
-            <div className="form-login-container">
+            <div id="login-page-container">
                 <h1>Login</h1>
-                <LoginForm />            
+                <div className="form-login-container">
+                    <LoginForm />            
+                </div>
             </div>
         );
     }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './NavBar.css';
 
 class NavBar extends Component {    
     render() {
@@ -11,12 +12,12 @@ class NavBar extends Component {
         }
 
         return (
-            <div className="NavBar">
+            <nav className="NavBar">
                 <ul>
-                    <li>NavBar</li>
-                    <li>{mode}</li>
+                    <li><a href="/">BudgetCalc</a></li>
+                    <li><a href="/">{mode}</a></li>
                 </ul>
-            </div>
+            </nav>
         );
     }
 }

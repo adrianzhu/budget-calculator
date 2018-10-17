@@ -1,3 +1,4 @@
+/* Global Stylesheet */
 body {
   margin: 0;
   padding: 0;
@@ -12,3 +13,45 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+ul {
+    list-style-type: none;
+}
+input {
+    margin: 10px 0;
+    padding: 10px;
+    clear: both;  
+}
+a {
+    color: #ACF3D3;
+}
+a:hover {
+    color: #69CBA1;
+}
+input {
+    border-radius: 15px;    
+    /*box-shadow: 2px 2px 3px #999;    */
+    background-color: grey;
+    border-style: none;
+    padding: 10px 12px;
+}
+input:focus {
+    color: #F6FFFB;
+}
+::placeholder {    
+    color: white;    
+}
+input.button {
+    /*background-color: #0C9;*/
+    background-color: #69CBA1;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 1px;
+    border-radius: 15px;    
+    border-style: none;
+    /*box-shadow: 2px 2px 3px #999;    */
+}
+input.button:hover {
+    background-color: #ACF3D3;
+    /*color: #3FB488;*/
+} 

@@ -1,0 +1,16 @@
+form.form-login {
+    vertical-align: middle;
+    width: 20%;
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+}
+.form-login input {
+    width: 100%;    
+}
+.form-login a {
+    
+}
+.form-login ul {
+    padding: 0;
+}

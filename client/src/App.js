@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router';
 import { BrowserRouter } from 'react-router-dom'
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
@@ -28,22 +28,20 @@ class App extends Component {
         const isLoggedIn = this.state.isLoggedIn;
 
         let pageMode;
-        let dashboard = <Dashboard />
-        let login = <Login />
 
         if (isLoggedIn) {
-            pageMode = <Dashboard />
+            pageMode = "Logged In"
         } else {
-            pageMode = <Login />
+            pageMode = "Not Logged In"
         }
 
         return (
             <BrowserRouter>
                 <div className="App">
                     <NavBar isLoggedIn={this.state.isLoggedIn} />
-                    {pageMode}
-                    <Route path="login" component={login} />
-                    <Route path="dashboard" component={dashboard} />
+                    {pageMode}                    
+                    <Route path="/login" component={Login} />
+                    <Route path="/dashboard" component={Dashboard} />                
                 </div>
             </BrowserRouter>
         );
