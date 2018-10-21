@@ -6,7 +6,6 @@ class Dashboard extends Component {
     render() {
         return (
             <div id="dashboard-page-container">
-                <p>{request.session.passport}</p>
                 <h1>Dashboard</h1>                
             </div>
         );

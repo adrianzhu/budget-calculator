@@ -58,15 +58,18 @@ passport.deserializeUser(function(userId, done) {
     })
 });
 
-app.post('/api/users/login', passport.authenticate('login', {
-    successRedirect: '/dashboard',
-    failureRedirect: '/login',
-    session: true
-}));
+// app.post('/api/users/login', passport.authenticate('login', {
+//     successRedirect: '/dashboard',
+//     failureRedirect: '/login',
+//     session: true
+// }));
+app.get('/success?username=/:username', (req, res) => res.send("Welcome "+req.query.username+"!!"));
 
-// app.post('/api/users/login', function(request, response) {
-//     console.log('hello');
-// });
+app.post('/api/users/login', passport.authenticate('login', { failureRedirect: '/login' }),
+    function(req, res) {
+        res.redirect('/success?username=/'+req.user.username);
+    }
+);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

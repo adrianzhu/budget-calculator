@@ -15,7 +15,7 @@ class NavBar extends Component {
             <nav className="NavBar">
                 <ul>
                     <li><a href="/">BudgetCalc</a></li>
-                    <li><a href="/">{mode}</a></li>
+                    <li><a href="/login">{mode}</a></li>
                 </ul>
             </nav>
         );
