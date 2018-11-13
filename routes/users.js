@@ -12,4 +12,6 @@ router.get('/getadmin', usersController.getAdminUsers);
 
 router.get('/getallusers', usersController.getAllUsers);
 
+router.get('/current', usersController.getCurrent);
+
 module.exports = router;

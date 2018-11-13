@@ -11,7 +11,7 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            users: [],
+            user: {},
             isLoggedIn: false
         };
     }
@@ -19,9 +19,9 @@ class App extends Component {
 
     // Check cookies
     // componentDidMount() {
-    //     fetch('/users/getadmin')
+    //     fetch('/users/current')
     //     .then(res => res.json())
-    //     .then(users => this.setState({ users }));
+    //     .then(users => this.setState({ user }));
     // }
 
     render() {
@@ -39,7 +39,6 @@ class App extends Component {
             <BrowserRouter>
                 <div className="App">
                     <NavBar isLoggedIn={this.state.isLoggedIn} />
-                    {pageMode}                    
                     <Route path="/login" component={Login} />
                     <Route path="/dashboard" component={Dashboard} />                
                 </div>

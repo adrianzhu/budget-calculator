@@ -5,6 +5,7 @@ class NavBar extends Component {
     render() {
         let mode;
 
+        
         if (this.props.isLoggedIn) {
             mode = 'Show User Name'; 
         } else {

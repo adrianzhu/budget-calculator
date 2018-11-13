@@ -11,6 +11,10 @@ var pg = require('pg');
 
 var passport = require('passport');
 var localLoginStrategy = require('./passport/local-login');
+var models = require('./models');
+var expressSession = require('express-session');
+var SequelizeStore = require('connect-session-sequelize')(expressSession.Store);
+var sessionStore = new SequelizeStore({db: models.sequelize, table: 'Session'});
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -21,7 +25,7 @@ var models = require('./models');
 ///////////////////////
 // App Configuration
 ///////////////////////
-var app = express();
+var app = express(); 
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -34,6 +38,11 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(expressSession({
+    secret: 'keyboard kitty',
+    // resave: false,
+    // saveUninitialized: false,
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -65,9 +74,15 @@ passport.deserializeUser(function(userId, done) {
 // }));
 app.get('/success?username=/:username', (req, res) => res.send("Welcome "+req.query.username+"!!"));
 
-app.post('/api/users/login', passport.authenticate('login', { failureRedirect: '/login' }),
-    function(req, res) {
-        res.redirect('/success?username=/'+req.user.username);
+app.post('/api/users/login', passport.authenticate('login', { 
+        failureRedirect: '/login',
+        session: true 
+
+    }), function(req, res) {
+        // res.json({id: req.user.id, username: req.user.username });
+        // res.redirect('/success?username=/'+req.user.username);
+        console.log('hi', req.user.username);
+        res.redirect('/dashboard');
     }
 );
 
