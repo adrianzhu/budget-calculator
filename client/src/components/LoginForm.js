@@ -5,7 +5,8 @@ class Login extends Component {
 
     render() {
         return (
-            <form className="form-login" action="/api/users/login" method="post">
+            // <form className="form-login" action="/api/users/login" method="post">
+            <form className="form-login" action="/users/login" method="post">
                 <input type="text" name="username" placeholder="username"/>
                 <input type="password" name="password" placeholder="password"/>
                 <input className="button" type="submit" value="Log In"/>

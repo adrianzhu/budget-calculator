@@ -10,7 +10,9 @@ var sequelize = require('sequelize');
 var pg = require('pg');
 
 var passport = require('passport');
+var jwt = require('jsonwebtoken');
 var localLoginStrategy = require('./passport/local-login');
+var LocalStrategy = require('passport-local');
 var models = require('./models');
 var expressSession = require('express-session');
 var SequelizeStore = require('connect-session-sequelize')(expressSession.Store);
@@ -38,13 +40,13 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(expressSession({
-    secret: 'keyboard kitty',
-    // resave: false,
-    // saveUninitialized: false,
-}));
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(expressSession({
+//     secret: 'keyboard kitty',
+//     // resave: false,
+//     // saveUninitialized: false,
+// }));
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 // // All other routes
 app.use('/', indexRouter);
@@ -54,10 +56,22 @@ app.use('/users', usersRouter);
 ///////////////////////
 // Session Management
 ///////////////////////
-passport.use('login', localLoginStrategy);
+// https://medium.freecodecamp.org/learn-how-to-handle-authentication-with-node-using-passport-js-4a56ed18e81e
+passport.use(new LocalStrategy(function(username, password, done) {
+        models.User.findOne({ where: {username: username} })
+            .then((user) => {
+                if(!user || !user.validPassword(password)) {
+                    return done(null, false, {errors: { 'username or password': 'is invalid'} });
+                }
+
+                return done(null, user);
+            }).catch(done);
+}));
+
 passport.serializeUser(function(user, done) {
     return done(null, user.id);
 });
+
 passport.deserializeUser(function(userId, done) {
     models.User.findById(userId).then(function (user) {
         if (!user)
@@ -72,19 +86,6 @@ passport.deserializeUser(function(userId, done) {
 //     failureRedirect: '/login',
 //     session: true
 // }));
-app.get('/success?username=/:username', (req, res) => res.send("Welcome "+req.query.username+"!!"));
-
-app.post('/api/users/login', passport.authenticate('login', { 
-        failureRedirect: '/login',
-        session: true 
-
-    }), function(req, res) {
-        // res.json({id: req.user.id, username: req.user.username });
-        // res.redirect('/success?username=/'+req.user.username);
-        console.log('hi', req.user.username);
-        res.redirect('/dashboard');
-    }
-);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

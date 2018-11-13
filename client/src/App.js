@@ -25,15 +25,15 @@ class App extends Component {
     // }
 
     render() {
-        const isLoggedIn = this.state.isLoggedIn;
+        // const isLoggedIn = this.state.isLoggedIn;
 
-        let pageMode;
+        // let pageMode;
 
-        if (isLoggedIn) {
-            pageMode = "Logged In"
-        } else {
-            pageMode = "Not Logged In"
-        }
+        // if (isLoggedIn) {
+        //     pageMode = "Logged In"
+        // } else {
+        //     pageMode = "Not Logged In"
+        // }
 
         return (
             <BrowserRouter>
