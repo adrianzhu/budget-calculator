@@ -38,7 +38,7 @@ class App extends Component {
         return (
             <BrowserRouter>
                 <div className="App">
-                    <NavBar isLoggedIn={this.state.isLoggedIn} />
+                    <NavBar isLoggedIn={this.state.isLoggedIn} />                    
                     <Route path="/login" component={Login} />
                     <Route path="/dashboard" component={Dashboard} />                
                 </div>
