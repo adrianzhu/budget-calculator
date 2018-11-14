@@ -14,8 +14,8 @@ var jwt = require('jsonwebtoken');
 var localLoginStrategy = require('./passport/local-login');
 var LocalStrategy = require('passport-local');
 var models = require('./models');
-var expressSession = require('express-session');
-var SequelizeStore = require('connect-session-sequelize')(expressSession.Store);
+var session = require('express-session');
+var SequelizeStore = require('connect-session-sequelize')(session.Store);
 var sessionStore = new SequelizeStore({db: models.sequelize, table: 'Session'});
 
 var indexRouter = require('./routes/index');
@@ -34,22 +34,61 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: false }));
+
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-// app.use(expressSession({
-//     secret: 'keyboard kitty',
-//     // resave: false,
-//     // saveUninitialized: false,
-// }));
+
+app.use(session({
+    key: 'user_sid',
+    secret: 'keyboard kitty',
+    resave: false,
+    saveUninitialized: false,
+    store: sessionStore,
+    cookie: {
+        expires: 600000
+    }
+}));
+
 // app.use(passport.initialize());
 // app.use(passport.session());
 
+
+// app.use((req, res, next) => {
+//     if (req.cookies.user_sid && !req.session.user) {
+//         res.clearCookie('user_sid');
+//     }
+//     next();
+// });
+
+var sessionChecker = (req, res, next) => {
+    console.log('checking session');
+
+    if (req.session.user && req.cookies.user_sid) {
+        res.redirect('/dashboard');
+    } else {
+        console.log('not logged in');
+        next();
+    }
+}
+
+
 // // All other routes
-app.use('/', indexRouter);
+// app.use('/', indexRouter);
+app.get('/', sessionChecker, (req, res) => {
+    console.log('inside the callback');
+    console.log(req.sessionID);
+    res.redirect('/login');
+});
+// app.get('/', (req, res) => {
+//     console.log('inside');
+//     res.send('home');
+// })
 app.use('/users', usersRouter);
 
 
